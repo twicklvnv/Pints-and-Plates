@@ -28,3 +28,7 @@ body {
 .carousel {
     margin-top: -40px;
 }
+
+li {
+    margin: 0;
+}
