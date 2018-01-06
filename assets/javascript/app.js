@@ -1,7 +1,10 @@
 var styleChoosen ="",
 	beers = [{
 		style:"blond ale",
-		id:45},
+			id:45,
+			pairing1: "chicken",
+			pairing2: "salmon",
+			pairing3: "salad"},
 		{style:"british style bitter",
 			id:3,
 			pairing1: "fish chips",
@@ -15,40 +18,88 @@ var styleChoosen ="",
 		{style:"india pale ale",
 			id:2,
 			pairing1: "curry",
-		    pairing2: "Gargonzola Cheese",
-		    pairing3: "Carrot Cake"},
+	    pairing2: "Gorgonzola Cheese",
+	    pairing3: "Carrot Cake"},
 		{style:"amber ale",
-		id:32},
+			id:32,
+			pairing1: "chicken",
+			pairing2: "seafood",
+			pairing3: "burgers"},
 		{style:"brown ale",
-		id:12},
+			id:12,
+			pairing1: "roast pork",
+			pairing2: "smoked sausage",
+			pairing3: "grilled salmon"},
 		{style:"abby dubbel/trippel",
-		id:59},
+			id:59,
+			pairing1: "barbecue",
+			pairing2: "stews",
+			pairing3: "cajun"},
 		{style:"barley wine",
-		id:17},
+			id:17,
+			pairing1: "stilton cheese",
+			pairing2: "chocolate hazelnut torte",
+			pairing3: "toffee caramel cheesecake"},
 		{style:"porter",
-		id:104},
+			id:104,
+			pairing1: "barbecue",
+			pairing2: "sausages",
+			pairing3: "blackened fish"},
 		{style:"oatmeal stout",
-		id:21},
+			id:21,
+			pairing1: "barbecue",
+			pairing2: "mole",
+			pairing3: "chocolate espresso cake"},
 		{style:"hefeweizen",
-		id:48},
+			id:48,
+			pairing1: "salad",
+			pairing2: "seafood",
+			pairing3: "sushi"},
 		{style:"witbier",
-		id:65},
+			id:65,
+			pairing1: "seafood",
+			pairing2: "herb cheese",
+			pairing3: "banana orange crepes"},
 		{style:"weizenbock",
-		id:53},
+			id:53,
+			pairing1: "roast pork",
+			pairing2: "smoked ham",
+			pairing3: "banana souflee"},
 		{style:"pilsener",
-		id:75},
+		indiad:75,
+			pairing1: "chicken",
+			pairing2: "bratwurst",
+			pairing3: "salad"},
 		{style:"dortmunder",
-		id:79},
+			id:79,
+			pairing1: "salad",
+			pairing2: "seafood",
+			pairing3: "pork"},
 		{style:"marzen",
-		id:81},
+			id:81, 
+			pairing1: "chicken (spicy)",
+			pairing2: "sausage",
+			pairing3: "pork (spicy)"},
 		{style:"amber lager",
-		id:101},
+			id:101,
+			pairing1: "barbecue",
+			pairing2: "burgers",
+			pairing3: "chili"},
 		{style:"dark lager",
-		id:83},
+			id:83,
+			pairing1: "barbecue",
+			pairing2: "sausage",
+			pairing3: "candied ginger pear cake"},
 		{style:"pale bock",
-		id:89},
+			id:89,
+			pairing1: "fried chicken",
+			pairing2: "spicy Thai",
+			pairing3: "Korean barbecue"},
 		{style:"doppelbock",
-		id:90},
+			id:90,
+			pairing1: "duck",
+			pairing2: "roast pork",
+			pairing3: "German chocolate cake"},
    		];
 
 	$(".orange-text").on("click", function (){
@@ -63,6 +114,10 @@ var styleChoosen ="",
 	.done(function(response) {
 		var results = response.data;
 		console.log(response.data);
+});
+   	 })
+
+})	
 
 		for (var i =0; i<results.length;i++)
 			{
@@ -89,7 +144,7 @@ var styleChoosen ="",
 	})
          
 
-   	
+  	
 // $(document).ready(function(){
 //     $('.carousel').carousel();
 //     $('.collapsible').collapsible();
@@ -104,6 +159,6 @@ var styleChoosen ="",
 //     //     stopPropagation: false // Stops event propagation
 //     //   }
 //     // );
-//   });
+
 
 
