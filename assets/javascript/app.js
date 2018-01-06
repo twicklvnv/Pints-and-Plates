@@ -44,7 +44,7 @@ var beers = [{
 		id:90},
    		];
 
-   	$("")
+   	
 
    	var queryURL = "http://api.brewerydb.com/v2/style/" + id + "?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&callback=JSON_CALLBACK";
    	$.ajax( {
