@@ -1,6 +1,3 @@
-
-
-
 var styleChoosen ="",
 	beers = [{
 		style:"blond ale",
@@ -54,20 +51,43 @@ var styleChoosen ="",
 		id:90},
    		];
 
-   	 $(".orange-text").on("click", function (){
-   	 	styleChoosen = parseInt($(this).attr("id"));
-	    	console.log(styleChoosen);
-	    	var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=5&callback=JSON_CALLBACK";
-   	$.ajax( {
-		url: queryURL,
-		method: "GET",
+	$(".orange-text").on("click", function (){
+		styleChoosen = parseInt($(this).attr("id"));
+		console.log(styleChoosen);
+		var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=5&hasLabels=Y&callback=JSON_CALLBACK";
+		$.ajax( {
+			url: queryURL,
+			method: "GET",
 	})
 
 	.done(function(response) {
 		var results = response.data;
 		console.log(response.data);
-});
-   	 })
+
+		for (var i =0; i<results.length;i++)
+			{
+				console.log(results[i].name);
+				console.log(results[i].description);
+				console.log(results[i].labels.large);
+
+				//init carousel
+			    var slider = $('.carousel');
+			    slider.carousel();
+
+					//add a new item
+				slider.append("<div class='carousel-item'><img src='"+results[i].labels.large+"' id='image1'><div class='beerName'>"+results[i].name+"</div></div>");
+			    
+			    //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
+			    if (slider.hasClass('initialized')){
+						slider.removeClass('initialized')
+			    }
+
+			   //just reinit the carousel
+			    slider.carousel();   
+			}			
+		});
+	})
+         
 
    	
 // $(document).ready(function(){
