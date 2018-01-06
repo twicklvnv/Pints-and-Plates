@@ -1,5 +1,6 @@
 
 
+
 var beers = [{
 		style:blond ale,
 		id:45},
@@ -43,7 +44,7 @@ var beers = [{
 		id:90},
    		];
 
-   	$("")
+   	
 
    	var queryURL = "http://api.brewerydb.com/v2/style/" + id + "?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&callback=JSON_CALLBACK";
    	$.ajax( {
@@ -54,3 +55,21 @@ var beers = [{
 	.done(function(response) {
 		var results = response.data;
 		console.log(response.data);
+
+$(document).ready(function(){
+    $('.carousel').carousel();
+    $('.collapsible').collapsible();
+    $('.dropdown-button').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrainWidth: false, // Does not change width of dropdown to that of the activator
+        hover: true, // Activate on hover
+        gutter: 0, // Spacing from edge
+        belowOrigin: false, // Displays dropdown below the button
+        alignment: 'left', // Displays dropdown with edge aligned to the left of button
+        stopPropagation: false // Stops event propagation
+      }
+    );
+  });
+
+
