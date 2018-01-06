@@ -1,15 +1,25 @@
 
 
 
-var beers = [{
+var styleChoosen ="",
+	beers = [{
 		style:"blond ale",
 		id:45},
 		{style:"british style bitter",
-		id:3},
+			id:3,
+			pairing1: "fish chips",
+            pairing2: "roast chicken",
+            pairing3: "pork"},
 		{style:"pale ale",
-		id:1},
+			id:1,
+			pairing1: "meat pie",
+			pairing2: "burger",
+			pairing3: "pumpkin flan"},
 		{style:"india pale ale",
-		id:2},
+			id:2,
+			pairing1: "curry",
+		    pairing2: "Gargonzola Cheese",
+		    pairing3: "Carrot Cake"},
 		{style:"amber ale",
 		id:32},
 		{style:"brown ale",
@@ -44,12 +54,15 @@ var beers = [{
 		id:90},
    		];
 
-   	$(".orange-text").on("click", function {
-   		var id = $(this).attr("id");
-   		console.log(id);
-   	
+
 
    	var queryURL = "http://api.brewerydb.com/v2/style/" + id + "?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&callback=JSON_CALLBACK";
+
+   	 $(".orange-text").on("click", function (){
+   	 	styleChoosen = parseInt($(this).attr("id"));
+	    	console.log(styleChoosen);
+	    	var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=5&callback=JSON_CALLBACK";
+
    	$.ajax( {
 		url: queryURL,
 		method: "GET",
@@ -58,6 +71,8 @@ var beers = [{
 	.done(function(response) {
 		var results = response.data;
 		console.log(response.data);
+});
+   	 })
 
 	})
 
@@ -76,5 +91,21 @@ $(document).ready(function(){
       }
     );
   });
+   	
+// $(document).ready(function(){
+//     $('.carousel').carousel();
+//     $('.collapsible').collapsible();
+//     // $('.dropdown-button').dropdown({
+//     //     inDuration: 300,
+//     //     outDuration: 225,
+//     //     constrainWidth: false, // Does not change width of dropdown to that of the activator
+//     //     hover: true, // Activate on hover
+//     //     gutter: 0, // Spacing from edge
+//     //     belowOrigin: false, // Displays dropdown below the button
+//     //     alignment: 'left', // Displays dropdown with edge aligned to the left of button
+//     //     stopPropagation: false // Stops event propagation
+//     //   }
+//     // );
+//   })
 
 
