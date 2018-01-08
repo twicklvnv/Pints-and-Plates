@@ -18,8 +18,8 @@ var styleChoosen ="",
 		{style:"india pale ale",
 			id:2,
 			pairing1: "curry",
-	    pairing2: "Gorgonzola Cheese",
-	    pairing3: "Carrot Cake"},
+	    	pairing2: "Gorgonzola Cheese",
+	    	pairing3: "Carrot Cake"},
 		{style:"amber ale",
 			id:32,
 			pairing1: "chicken",
@@ -105,6 +105,7 @@ var styleChoosen ="",
 	$(".orange-text").on("click", function (){
 		styleChoosen = parseInt($(this).attr("id"));
 		console.log(styleChoosen);
+		$("#food1").html($(this).attr("pairing1"));
 		var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=5&hasLabels=Y&callback=JSON_CALLBACK";
 		$.ajax( {
 			url: queryURL,
@@ -115,15 +116,17 @@ var styleChoosen ="",
 		var results = response.data;
 		console.log(response.data);
 });
-   	 })
+   	 
 
-})	
+	
 
 		for (var i =0; i<results.length;i++)
 			{
 				console.log(results[i].name);
 				console.log(results[i].description);
 				console.log(results[i].labels.large);
+
+				$("#description").html(results[i].description);
 
 				//init carousel
 			    var slider = $('.carousel');
@@ -140,7 +143,7 @@ var styleChoosen ="",
 			   //just reinit the carousel
 			    slider.carousel();   
 			}			
-		});
+		
 	})
          
 
