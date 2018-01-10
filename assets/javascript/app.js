@@ -120,6 +120,7 @@ var styleChoosen,
 	})
          
 function populateBeerCarousel(styleChoosen){
+
 		$("#food1").html($(this).attr("pairing1"));
 		var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=5&hasLabels=Y&callback=JSON_CALLBACK";
 		$.ajax( {
@@ -145,6 +146,7 @@ function populateBeerCarousel(styleChoosen){
 				    if (slider.hasClass('initialized')){
 							slider.removeClass('initialized')
 				    }
+
 				}			
 		});
 }
