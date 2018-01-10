@@ -30,6 +30,10 @@ body {
     margin-top: 10px;
 }
 
+#beerStyleDesc {
+    line-height: 1.5;
+}
+
 #recipeTitle,
 #recipeList,
 #recipeInstruction {
@@ -67,4 +71,8 @@ body {
 
 .foodInstruction {
     margin-bottom: 10px;
+}
+
+#visitorText {
+    margin-right: 20px;
 }
