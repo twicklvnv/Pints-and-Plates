@@ -76,3 +76,18 @@ body {
 #visitorText {
     margin-right: 20px;
 }
+
+#beerStyleDesc, .beerName {
+    font-size:18px;
+    font-family: sans-serif;
+    font-variant:small-caps;
+}
+.carousel .carousel-item {
+    margin-top:-30px;
+    width:300px !important;
+}
+.beerName{
+    margin-top:10px;
+    font-size:18px;
+    font-weight:bold;
+}
