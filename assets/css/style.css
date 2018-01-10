@@ -62,16 +62,10 @@ img {
 .waves-effect {
     margin: 5px;
 }
-
-#ingredients1{
-    float: right;
-    margin-top: -100px;
+#ingredients{
+    float: left;
+    width:50%;
 }
-.ingredients{
-    float:right;
-    margin-top: -100px;
-}
-
 .ingredients li{
     list-style-type: square!important;
 }
@@ -80,3 +74,11 @@ img {
     margin-bottom: 10px;
 }
 
+.recipeInfo{
+    float:right;
+    padding-top: -200px;
+}
+.recipeImg{
+    width:200px;
+    height:150px;
+}
