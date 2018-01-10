@@ -253,6 +253,14 @@ function populateBeerStyleInfo(styleChoosen) {
 	});
 }
 
+//js code needed to initiate modal
+$(document).ready(function() {
+	$("#modal1").modal();
+	$("#image1").on("click", function() {
+		$("#modal1").modal("show");
+	})
+})
+
 function populateFoodChoices(chosenID) {
 	for (var i = 0; i < beers.length; i++) {
 		if (beers[i].id === chosenID) {
