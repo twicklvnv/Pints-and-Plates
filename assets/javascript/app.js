@@ -20,8 +20,8 @@ var styleChoosen,
 		{style:"india pale ale",
 			id:2,
 			pairing1: "curry",
-	    pairing2: "Gorgonzola Cheese",
-	    pairing3: "Carrot Cake"},
+	    	pairing2: "Gorgonzola Cheese",
+	    	pairing3: "Carrot Cake"},
 		{style:"amber ale",
 			id:32,
 			pairing1: "chicken",
@@ -120,8 +120,9 @@ var styleChoosen,
 	})
          
 function populateBeerCarousel(styleChoosen){
-	var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=5&hasLabels=Y&callback=JSON_CALLBACK";
-		$.ajax({
+		$("#food1").html($(this).attr("pairing1"));
+		var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=5&hasLabels=Y&callback=JSON_CALLBACK";
+		$.ajax( {
 			url: queryURL,
 			method: "GET",
 		}).done(function(response) {
@@ -144,9 +145,6 @@ function populateBeerCarousel(styleChoosen){
 				    if (slider.hasClass('initialized')){
 							slider.removeClass('initialized')
 				    }
-
-				   //just reinit the carousel
-				    slider.carousel();   
 				}			
 		});
 }
@@ -170,6 +168,7 @@ function populateBeerStyleInfo(styleChoosen){
 		});
 }
 
+
 function populateFoodChoices(chosenID){
 	for(var i = 0; i<beers.length; i++){
     	if(beers[i].id === chosenID)
@@ -180,6 +179,13 @@ function populateFoodChoices(chosenID){
     	}
     }
 }
+
+				// $("#description").html(results[i].description);
+
+				// //init carousel
+			 //    var slider = $('.carousel');
+			 //    slider.carousel();
+
 
 function populateRecipeHeaders(foodChoice){
 	var queryURL = "http://api.yummly.com/v1/api/recipes?_app_id=8e66c137&_app_key=7a80d82eae7315aa6e6f778cb494f46e&q="+foodChoice; //query for list of recipes
@@ -213,6 +219,7 @@ function populateRecipeHeaders(foodChoice){
 		$('#ingredients1').append(ingredientsHtml);
 	});
 }
+
 
 function populateRecipeURL(recipeID){
 	var queryURL = "http://api.yummly.com/v1/api/recipe/"+recipeID+"?_app_id=8e66c137&_app_key=7a80d82eae7315aa6e6f778cb494f46e"; //query for specific recipe ID
