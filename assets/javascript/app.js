@@ -151,30 +151,14 @@ $(".orange-text").on("click", function () {
 	populateBeerCarousel(styleChoosen);
 	populateBeerStyleInfo(styleChoosen);
 	populateFoodChoices(styleChoosen);
-	
-	//carousel autoplay
-	//          $('.carousel').carousel({
-	//           padding: 200    
-	// });
-
-
-	// stop()
-
-
-	// function stop(){
-	//  clearTimeout(timeout);
-	// }  
-	// $(".beerStyle").html(beerStyle).addClass("black-text");
-	// $(".beerStyle").style.color = "black";
-	// document.getElementById(".beerStyle").style.color ="black";
-	
 });
+
 $(".waves-effect").click(function () {
 	$("#recipeTitle").fadeIn(1000);
 	$("#recipeList").fadeIn(1000);
 	$("#recipeInstruction").fadeIn(1000);
 	foodChoice = $(this).text();
-	console.log("foodChoice = " + foodChoice);
+	$(".collapsible-body").empty();
 	populateRecipeHeaders(foodChoice);
 })
 
@@ -308,8 +292,8 @@ function populateRecipeHeaders(foodChoice){
     	populateRecipeURL(5,response.matches[4].id);
 
     	//recipe 1
-    	$("#recipe-body1").prepend("<img src="+response.matches[0].smallImageUrls+"><div id='recipeInfo1'>Total time: "+(response.matches[0].totalTimeInSeconds/60)+ "minutes</div><br><div class='ingredients' id='ingredients1'><b>Ingredients:</b><br></div>");
-		var ingredients = response.matches[i].ingredients;
+    	$("#recipe-body1").prepend("<div class='ingredients' id='ingredients1'><b>Ingredients:</b><br></div><div class='recipeInfo'><img class='recipeImg' src="+response.matches[0].smallImageUrls+"><div id='totalTime1'><div id='yield1'>Yields: </div></div>");
+		var ingredients = response.matches[0].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
 		for (var i =0; i < ingredients.length ; i++)
 		{
@@ -319,8 +303,8 @@ function populateRecipeHeaders(foodChoice){
 		$('#ingredients1').append(ingredientsHtml);
 
 		//recipe 2
-		$("#recipe-body2").prepend("<img src="+response.matches[1].smallImageUrls+"><div id='recipeInfo2'>Total time: "+(response.matches[1].totalTimeInSeconds/60)+ "minutes</div><br><div class='ingredients' id='ingredients2'><b>Ingredients:</b><br></div>");
-		var ingredients = response.matches[i].ingredients;
+    	$("#recipe-body2").prepend("<div class='ingredients' id='ingredients2'><b>Ingredients:</b><br></div><div class='recipeInfo'><img class='recipeImg' src="+response.matches[1].smallImageUrls+"><div id='totalTime2'><div id='yield2'>Yields: </div></div>");
+		var ingredients = response.matches[1].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
 		for (var i =0; i < ingredients.length ; i++)
 		{
@@ -330,8 +314,8 @@ function populateRecipeHeaders(foodChoice){
 		$('#ingredients2').append(ingredientsHtml);
 
 		//recipe 3
-		$("#recipe-body3").prepend("<img src="+response.matches[2].smallImageUrls+"><div id='recipeInfo3'>Total time: "+(response.matches[2].totalTimeInSeconds/60)+ "minutes</div><br><div class='ingredients' id='ingredients3'><b>Ingredients:</b><br></div>");
-		var ingredients = response.matches[i].ingredients;
+    	$("#recipe-body3").prepend("<div class='ingredients' id='ingredients3'><b>Ingredients:</b><br></div><div class='recipeInfo'><img class='recipeImg' src="+response.matches[2].smallImageUrls+"><div id='totalTime3'><div id='yield3'>Yields: </div></div>");
+		var ingredients = response.matches[2].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
 		for (var i =0; i < ingredients.length ; i++)
 		{
@@ -341,8 +325,8 @@ function populateRecipeHeaders(foodChoice){
 		$('#ingredients3').append(ingredientsHtml);
 
 		//recipe 4
-		$("#recipe-body4").prepend("<img src="+response.matches[3].smallImageUrls+"><div id='recipeInfo4'>Total time: "+(response.matches[3].totalTimeInSeconds/60)+ "minutes</div><br><div id='ingredients4'><b>Ingredients:</b><br></div>");
-		var ingredients = response.matches[i].ingredients;
+    	$("#recipe-body4").prepend("<div class='ingredients' id='ingredients4'><b>Ingredients:</b><br></div><div class='recipeInfo'><img class='recipeImg' src="+response.matches[3].smallImageUrls+"><div id='totalTime4'><div id='yield4'>Yields: </div></div>");
+		var ingredients = response.matches[3].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
 		for (var i =0; i < ingredients.length ; i++)
 		{
@@ -352,8 +336,8 @@ function populateRecipeHeaders(foodChoice){
 		$('#ingredients4').append(ingredientsHtml);
 
 		//recipe 5
-		$("#recipe-body5").prepend("<img src="+response.matches[4].smallImageUrls+"><div id='recipeInfo5'>Total time: "+(response.matches[4].totalTimeInSeconds/60)+ "minutes</div><br><div id='ingredients5'><b>Ingredients:</b><br></div>");
-		var ingredients = response.matches[i].ingredients;
+		$("#recipe-body5").prepend("<div class='ingredients' id='ingredients5'><b>Ingredients:</b><br></div><div class='recipeInfo'><img class='recipeImg' src="+response.matches[4].smallImageUrls+"><div id='totalTime5'><div id='yield5'>Yields: </div></div>");
+		var ingredients = response.matches[4].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
 		for (var i =0; i < ingredients.length ; i++)
 		{
@@ -375,23 +359,34 @@ function populateRecipeURL(recipeNum,recipeID){
 		console.log(response);
 		console.log(response.yield);
 		console.log(response.source.sourceRecipeUrl);		
-		recipeHTML = "<div>Yields: "+(response.yield)+ "</div><br><div Find full recipe at:<br><a target='_blank' href='"+response.source.sourceRecipeUrl+"'>"+response.source.sourceRecipeUrl+"</a></div>";	
-
+		var recipeHTML = "<br><a target='_blank' href='"+response.source.sourceRecipeUrl+"'>"+response.source.sourceRecipeUrl+"</a></div>";	
+		var totalTimeHTML = "Total time: "+response.totalTime+"<br>"
+		var recipeYield = response.yield;
 		switch(recipeNum) {
 		    case 1:
-		        $("#recipeInfo1").append(recipeHTML);
+		        $("#ingredients1").append(recipeHTML);
+		        $("#yield1").append(recipeYield);
+		        $("#totalTime1").append(totalTimeHTML);
 		        break;
 		    case 2:
-		        $("#recipeInfo2").append(recipeHTML);
+		       $("#ingredients2").append(recipeHTML);
+		        $("#yield2").append(recipeYield);
+		        $("#totalTime2").append(totalTimeHTML);
 		        break;
 	        case 3:
-		        $("#recipeInfo3").append(recipeHTML);
+		        $("#ingredients3").append(recipeHTML);
+		        $("#yield3").append(recipeYield);
+		        $("#totalTime3").append(totalTimeHTML);
 		        break;
 	        case 4:
-		        $("#recipeInfo4").append(recipeHTML);
+		        $("#ingredients4").append(recipeHTML);
+		        $("#yield4").append(recipeYield);
+		        $("#totalTime4").append(totalTimeHTML);
 		        break;
 	        case 5:
-		        $("#recipeInfo5").append(recipeHTML);
+		        $("#ingredients5").append(recipeHTML);
+		        $("#yield5").append(recipeYield);
+		        $("#totalTime5").append(totalTimeHTML);
 		        break;
 		    default:
 		       alert("none");
