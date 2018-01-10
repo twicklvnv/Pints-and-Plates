@@ -128,28 +128,67 @@ function populateBeerCarousel(styleChoosen){
 			url: queryURL,
 			method: "GET",
 		}).done(function(response) {
-			var results = response.data;
-			console.log(response.data);
-			for (var i =0; i<results.length;i++)
-				{
-					console.log(results[i].name);
-					console.log(results[i].description);
-					console.log(results[i].labels.large);
+        var results = response.data;
+        console.log(response.data);
+        $(".carousel").carousel().empty();
+        for (var i =0; i<results.length;i++)
+        {
+            var string = results[i].labels.large
+      
+            console.log(results[i].name);
+            console.log(results[i].description);
+            console.log(results[i].labels.large);
+            $("#description").html(results[i].description);
+            //init carousel
+            var slider = $('.carousel');
+            slider.carousel();
+                //add a new item
+            slider.append("<div class='carousel-item'><img class='responsive-img circle' src='"+results[i].labels.large+"' style='{height:300px;width:300px;}' id='image1'><div class='beerName'>"+results[i].name+"</div></div>");
+            // slider.append("<div class='carousel-item style='background-image: src' " + results[i].labels.large + "'class='circle' id='image1'><div class='beerName'>"+results[i].name+"</div></div>");
+            // var str1 = "url(" + results[i].labels.large + ")";
+            // slider.append("<div class='carousel-item' style='background-image: src' "+results[i].labels.large+"'class='circle' id='image1'><div class='beerName'>"+results[i].name+"</div></div>");
+            $('.carousel').carousel('destroy');
+            //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
+            if (slider.hasClass('initialized')){
+                    slider.removeClass('initialized')
+            }
+           
+            // $('.carousel').carousel();
+            slider.carousel(); 
+         
+            
+        }
+        $(".carousel").mouseover(function(){
+               autoplay();              
+        }) 
+        function autoplay() {
+            $('.carousel').carousel('next');
+            timeout = setTimeout(autoplay, 2000);
+            }           
+    
+    })
+			// var results = response.data;
+			// console.log(response.data);
+			// for (var i =0; i<results.length;i++)
+			// 	{
+			// 		console.log(results[i].name);
+			// 		console.log(results[i].description);
+			// 		console.log(results[i].labels.large);
 
-					//init carousel
-				    var slider = $('.carousel');
-				    slider.carousel();
+			// 		//init carousel
+			// 	    var slider = $('.carousel');
+			// 	    slider.carousel();
 
-						//add a new item
-					slider.append("<div class='carousel-item'><img src='"+results[i].labels.large+"' id='image1'><div class='beerName'>"+results[i].name+"</div></div>");
+			// 			//add a new item
+			// 		slider.append("<div class='carousel-item'><img src='"+results[i].labels.large+"' id='image1'><div class='beerName'>"+results[i].name+"</div></div>");
 				    
-				    //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
-				    if (slider.hasClass('initialized')){
-							slider.removeClass('initialized')
-				    }
+			// 	    //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
+			// 	    if (slider.hasClass('initialized')){
+			// 				slider.removeClass('initialized')
+			// 	    }
 
-				}			
-		});
+			// 	}			
+		//});
 }
 
 function populateBeerStyleInfo(styleChoosen){
