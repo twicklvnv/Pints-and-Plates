@@ -107,6 +107,7 @@ var styleChoosen,
 	$(".orange-text").on("click", function (){
 		chosenID = $(this).attr("id");
 		styleChoosen = parseInt($(this).attr("id"));
+		$(".optionsPanel").fadeIn(1000);
 		console.log(styleChoosen);
 		populateBeerCarousel(styleChoosen);
 		populateBeerStyleInfo(styleChoosen);
@@ -114,6 +115,9 @@ var styleChoosen,
 	})
 
 	$(".waves-effect").click(function() {
+		$("#recipeTitle").fadeIn(1000);
+		$("#recipeList").fadeIn(1000);
+		$("#recipeInstruction").fadeIn(1000);
      	foodChoice = $(this).text();
      	console.log("foodChoice = " + foodChoice);	  
      	populateRecipeHeaders(foodChoice);   
