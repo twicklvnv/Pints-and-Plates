@@ -178,31 +178,78 @@ $(".waves-effect").click(function () {
 	populateRecipeHeaders(foodChoice);
 })
 
-function populateBeerCarousel(styleChoosen) {
-	$("#food1").html($(this).attr("pairing1"));
-	var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId=" + styleChoosen + "&order=random&randomCount=5&hasLabels=Y&callback=JSON_CALLBACK";
-	$.ajax({
-		url: queryURL,
-		method: "GET",
-	}).done(function (response) {
-		var results = response.data;
-		console.log(response.data);
-		for (var i = 0; i < results.length; i++) {
-			console.log(results[i].name);
-			console.log(results[i].description);
-			console.log(results[i].labels.large);
-			//init carousel
-			var slider = $('.carousel');
-			slider.carousel();
-			//add a new item
-			slider.append("<div class='carousel-item'><img class='responsive-img circle' src='" + results[i].labels.large + "' id='image1'><div class='beerName'>" + results[i].name + "</div></div>");
+function populateBeerCarousel(styleChoosen){
 
-			//remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
-			if (slider.hasClass('initialized')) {
-				slider.removeClass('initialized')
-			}
-		}
-	});
+		$("#food1").html($(this).attr("pairing1"));
+		var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=5&hasLabels=Y&callback=JSON_CALLBACK";
+		$.ajax( {
+			url: queryURL,
+			method: "GET",
+		})
+
+		.done(function(response) {
+        	var results = response.data;
+        	$(".carousel").carousel().empty();
+	        for (var i =0; i<results.length;i++)
+	        {
+	            var string = results[i].labels.large
+
+	            $("#description").html(results[i].description);
+	            
+	            //init carousel
+	            var slider = $('.carousel');
+					slider.carousel({
+					duration: 300,
+					onCycleTo : function($current_item, dragged) {
+						stopAutoplay();
+						startAutoplay(slider);
+					}
+				});
+
+                //add a new item
+	            slider.append("<div class='carousel-item'><img class='responsive-img circle' src='"+results[i].labels.large+"' style='{height:300px;width:300px;}' id='image1'><div class='beerName'>"+results[i].name+"</div></div>");
+	                        
+	            //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
+	            if (slider.hasClass('initialized')){
+	                    slider.removeClass('initialized')
+	            }
+	           
+	            var autoplay_id;
+				function startAutoplay($carousel) {
+					autoplay_id = setInterval(function() {
+					$carousel.carousel('next');
+					}, 3000); // every 5 seconds
+				}
+
+				function stopAutoplay() {
+				  if(autoplay_id) {
+				    clearInterval(autoplay_id);
+				  }
+				}           
+        }
+})
+			// var results = response.data;
+			// console.log(response.data);
+			// for (var i =0; i<results.length;i++)
+			// 	{
+			// 		console.log(results[i].name);
+			// 		console.log(results[i].description);
+			// 		console.log(results[i].labels.large);
+
+			// 		//init carousel
+			// 	    var slider = $('.carousel');
+			// 	    slider.carousel();
+
+			// 			//add a new item
+			// 		slider.append("<div class='carousel-item'><img src='"+results[i].labels.large+"' id='image1'><div class='beerName'>"+results[i].name+"</div></div>");
+				    
+			// 	    //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
+			// 	    if (slider.hasClass('initialized')){
+			// 				slider.removeClass('initialized')
+			// 	    }
+
+			// 	}			
+		//});
 }
 
 function populateBeerStyleInfo(styleChoosen) {
