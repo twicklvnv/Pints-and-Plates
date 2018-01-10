@@ -30,6 +30,11 @@ body {
     margin-top: -40px;
 }
 
+
+li {
+    margin: 0;    
+}
+
 .foodButton {
     margin: 5px;
 }

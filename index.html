@@ -74,9 +74,8 @@
         <div class="row">
             <div class="col s6">
                 <div class="optionsPanel z-depth-4 center" id="beerOptions">
-                    <h4 class="cardTitleText">Beer Style Name</h4>
-                    <p>Beer Style Information</p>
-                    <p id = "description"></p>
+                    <h4 id="beerStyleName" class="cardTitleText">Beer Style Name</h4>
+                    <p id="beerStyleDesc">Beer Style Information</p>
                     <div class="carousel">                            
                     </div>
                 </div>
@@ -86,40 +85,41 @@
                     <div class="row">
                         <h4 class="cardTitleText center-align">The Foods</h4>
                         <div class="center-align">
-                            <a id = "food1" class="waves-effect waves-light orange darken-4 btn">Food 1</a>
-                            <a class="waves-effect waves-light orange darken-4 btn">Food 2</a>
-                            <a class="waves-effect waves-light orange darken-4 btn">Food 3</a>
+                            <a id="foodPair1" class="waves-effect waves-light orange darken-4 btn">Food 1</a>
+                            <a id="foodPair2" class="waves-effect waves-light orange darken-4 btn">Food 2</a>
+                            <a id="foodPair3" class="waves-effect waves-light orange darken-4 btn">Food 3</a>
                         </div>
                     </div>
                     <h4 class="cardTitleText center-align">The Recipes</h4>
                     <ul class="collapsible" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header">Recipe 1</div>
-                            <div class="collapsible-body"><span>Recipe link, ingredients, time</span>
+                            <div id="recipe-head1" class="collapsible-header">Recipe 1</div>
+                            <div id="recipe-body1" class="collapsible-body">
+                            <a class="waves-effect waves-light orange darken-4 btn" id="saveButton">Save Recipe</a>                                
+                            </div>
+
+                        </li>
+                        <li>
+                            <div id="recipe-head2" class="collapsible-header">Recipe 2</div>
+                            <div id="recipe-body2" class="collapsible-body"><span>Recipe link, ingredients, time</span>
                                 <a class="waves-effect waves-light orange darken-4 btn" id="saveButton">Save Recipe</a>
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header">Recipe 2</div>
-                            <div class="collapsible-body"><span>Recipe link, ingredients, time</span>
+                            <div id="recipe-head3" class="collapsible-header">Recipe 3</div>
+                            <div id="recipe-body3" class="collapsible-body"><span>Recipe link, ingredients, time</span>
                                 <a class="waves-effect waves-light orange darken-4 btn" id="saveButton">Save Recipe</a>
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header">Recipe 3</div>
-                            <div class="collapsible-body"><span>Recipe link, ingredients, time</span>
+                            <div id="recipe-head4" class="collapsible-header">Recipe 4</div>
+                            <div id="recipe-body4" class="collapsible-body"><span>Recipe link, ingredients, time</span>
                                 <a class="waves-effect waves-light orange darken-4 btn" id="saveButton">Save Recipe</a>
                             </div>
                         </li>
                         <li>
-                            <div class="collapsible-header">Recipe 4</div>
-                            <div class="collapsible-body"><span>Recipe link, ingredients, time</span>
-                                <a class="waves-effect waves-light orange darken-4 btn" id="saveButton">Save Recipe</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header">Recipe 5</div>
-                            <div class="collapsible-body"><span>Recipe link, ingredients, time</span>
+                            <div id="recipe-head5" class="collapsible-header">Recipe 5</div>
+                            <div id="recipe-body5" class="collapsible-body"><span>Recipe link, ingredients, time</span>
                                 <a class="waves-effect waves-light orange darken-4 btn" id="saveButton">Save Recipe</a>
                             </div>
                         </li>
