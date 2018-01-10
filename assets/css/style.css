@@ -67,6 +67,10 @@ img {
     float: right;
     margin-top: -100px;
 }
+.ingredients{
+    float:right;
+    margin-top: -100px;
+}
 
 .ingredients li{
     list-style-type: square!important;
