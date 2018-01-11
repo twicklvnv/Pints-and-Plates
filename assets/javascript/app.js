@@ -416,3 +416,33 @@ function populateRecipeURL(recipeNum,recipeID){
 //     //     stopPropagation: false // Stops event propagation
 //     //   }
 //     // );
+
+//Firebase for current visitors
+var config = {
+    apiKey: "AIzaSyBqCyAhcPrLRyBTPqGmdAdP-w3b-8DfFe4",
+    authDomain: "bites-n-brews.firebaseapp.com",
+    databaseURL: "https://bites-n-brews.firebaseio.com",
+    projectId: "bites-n-brews",
+    storageBucket: "bites-n-brews.appspot.com",
+    messagingSenderId: "8519986760"
+  };
+
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+  var connectionsRef = database.ref("/connections");
+
+  var connectedRef = database.ref(".info/connected");
+
+  connectedRef.on("value", function(snap) {  
+	if (snap.val()) {
+		var con = connectionsRef.push(true);
+		con.onDisconnect().remove();
+	  }
+  });
+
+  connectionsRef.on("value", function(snap) {
+	  $("#connected-viewers").text(snap.numChildren());
+  });
+  	

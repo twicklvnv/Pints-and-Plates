@@ -29,6 +29,10 @@ body {
     margin-top: 10px;
 }
 
+#beerStyleDesc {
+    line-height: 1.5;
+}
+
 #recipeTitle,
 #recipeList,
 #recipeInstruction {
@@ -74,6 +78,27 @@ img {
     margin-bottom: 10px;
 }
 
+#visitorText {
+    margin-right: 20px;
+}
+
+#beerStyleDesc, .beerName {
+    font-size:18px;
+    font-family: sans-serif;
+    font-variant:small-caps;
+}
+
+.carousel .carousel-item {
+    margin-top:-30px;
+    width:300px !important;
+}
+
+.beerName{
+    margin-top:10px;
+    font-size:18px;
+    font-weight:bold;
+}
+
 .recipeInfo{
     float:right;
     padding-top: -200px;
@@ -82,3 +107,4 @@ img {
     width:200px;
     height:150px;
 }
+
