@@ -22,7 +22,6 @@ body {
     padding-top: 10px;
     padding-bottom: 30px;
     margin-top: 15px;
-    margin-bottom: 50px;
 }
 
 .dropdown-button {
@@ -68,10 +67,11 @@ img {
 }
 #ingredients{
     float: left;
-    width:50%;
+    width: 50%;
 }
 .ingredients li{
     list-style-type: square!important;
+    line-height: 1.5;
 }
 
 .foodInstruction {
@@ -82,29 +82,39 @@ img {
     margin-right: 20px;
 }
 
-#beerStyleDesc, .beerName {
+/* #beerStyleDesc,
+.beerName,
+#visitorText,
+.foodInstruction,
+#recipeInstruction,
+li a,
+.collapsible-header,
+.collapsible-body {
     font-size:18px;
     font-family: sans-serif;
-    font-variant:small-caps;
-}
+    font-variant: small-caps;
+} */
 
 .carousel .carousel-item {
     margin-top:-30px;
     width:300px !important;
 }
 
-.beerName{
+.beerName {
     margin-top:10px;
     font-size:18px;
     font-weight:bold;
 }
 
 .recipeInfo{
-    float:right;
+    float: right;
     padding-top: -200px;
 }
-.recipeImg{
+.recipeImg {
     width:200px;
-    height:150px;
+    height: 150px;
 }
+
+
+
 

@@ -212,7 +212,7 @@ function populateRecipeHeaders(foodChoice){
     	populateRecipeURL(5,response.matches[4].id);
 
     	//recipe 1
-    	$("#recipe-body1").prepend("<img src="+response.matches[0].smallImageUrls+"><div id='recipeInfo1'>Total time: "+(response.matches[0].totalTimeInSeconds/60)+ "minutes</div><br><div class='ingredients' id='ingredients1'><b>Ingredients:</b><br></div>");
+    	$("#recipe-body1").prepend("<img src="+response.matches[0].smallImageUrls+" class='recipeImage'><div id='recipeInfo1'>Total time: "+(response.matches[0].totalTimeInSeconds/60)+ "minutes</div><br><div class='ingredients' id='ingredients1'><b>Ingredients:</b><br></div>");
 		var ingredients = response.matches[i].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
 		for (var i =0; i < ingredients.length ; i++)
