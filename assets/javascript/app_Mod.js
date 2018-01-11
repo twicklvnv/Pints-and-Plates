@@ -189,7 +189,7 @@ function populateBeerCarousel(styleChoosen){
 						startAutoplay(slider);
 					}
 				});
-
+				var name = results[i].name;
                 //add a new item
 	            slider.append("<div data-abv='"+results[i].abv+"' onclick='openModal.call(this);' class='carousel-item'><img class='responsive-img circle' src='"+results[i].labels.large+"' style='{height:300px;width:300px;}' id='image1'><div class='beerName'>"+results[i].name+"</div><div class='beerDesc'>"+results[i].description+"</div></div>");
 	                        
@@ -379,12 +379,17 @@ function populateRecipeURL(recipeNum,recipeID){
 var openModal = function(param)
 {
     console.log(this.innerHTML);
-    $(".modal-content").empty();
     //$(".modal-header").append(this.innerHTML);
     $(".modal-content").append(this.innerHTML);
+   //$(".modal-content").find(".beerDesc").show();
    	$(".modal").modal();
 	$('#modal1').modal('open');
 };
+// function openModal(){
+// 	console.log(this);
+// 	$(".modal").modal();
+// 	$('#modal1').modal('open');
+// };
 
 //Firebase for current visitors
 var config = {

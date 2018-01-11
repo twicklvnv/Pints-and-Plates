@@ -114,7 +114,11 @@ li a,
     width:200px;
     height: 150px;
 }
-
-
+.beerDesc{
+    display: none;
+}
+.modal-content > .beerDesc{
+    display: inline;
+}
 
 
