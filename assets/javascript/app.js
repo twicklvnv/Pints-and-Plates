@@ -164,7 +164,7 @@ $(".waves-effect").click(function () {
 function populateBeerCarousel(styleChoosen){
 
 		$("#food1").html($(this).attr("pairing1"));
-		var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=5&hasLabels=Y&callback=JSON_CALLBACK";
+		var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=6&hasLabels=Y&callback=JSON_CALLBACK";
 		$.ajax( {
 			url: queryURL,
 			method: "GET",
@@ -183,15 +183,26 @@ function populateBeerCarousel(styleChoosen){
 	            //init carousel
 	            var slider = $('.carousel');
 					slider.carousel({
-					duration: 300,
+					duration: 600,
 					onCycleTo : function($current_item, dragged) {
 						stopAutoplay();
 						startAutoplay(slider);
 					}
 				});
 
-                //add a new item
-	            slider.append("<div onclick='openModal.call(this);' class='carousel-item'><img class='responsive-img circle' src='"+results[i].labels.large+"' id='image1'><div class='beerName'>"+results[i].name+"</div><div class='abv'>ABV: "+results[i].abv+"%</div><div class='beerDesc'>"+results[i].description+"</div></div>");
+                var abv = results[i].abv;
+                if(abv === null || abv === undefined)
+                {
+                    abv = "ABV is not available for this beer."
+                }
+                var description = results[i].description;
+                if(description === null || description === undefined)
+                {
+                    description = "The description is not available for this beer."
+                }
+
+               //add a new item
+                slider.append("<div onclick='openModal.call(this);' class='carousel-item'><img class='responsive-img circle' src='"+results[i].labels.large+"' id='image1'><div class='beerName'>"+results[i].name+"</div><div class='abv'>ABV: "+abv+"%</div><div class='beerDesc'>"+ description+"</div></div>");
 	                        
 	            //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
 	            if (slider.hasClass('initialized')){
