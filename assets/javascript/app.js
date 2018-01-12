@@ -4,7 +4,7 @@ var styleChoosen,
 	timeout, autoplay,
 	beers = [{
 			style: "blond ale",
-			id: 45,
+			id: 36,
 			pairing1: "chicken",
 			pairing2: "salmon",
 			pairing3: "salad"
