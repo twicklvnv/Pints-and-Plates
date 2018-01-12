@@ -280,7 +280,7 @@ function populateRecipeHeaders(foodChoice){
     	populateRecipeURL(5,response.matches[4].id);
 
     	//recipe 1
-		$("#recipe-body1").prepend("<div class='row'><div class='ingredients col s6' id='ingredients1'><b>Ingredients:</b><br></div><div class='recipeInfo col s6'><img class='recipeImg' src=" +response.matches[0].smallImageUrls+ "><div id='totalTime1'><div id='yield1'>Yields: </div></div></div>");
+		$("#recipe-body1").prepend("<div class='row'><div class='ingredients col s12 m6' id='ingredients1'><b>Ingredients:</b><br></div><div class='recipeInfo col s12 m6'><img class='recipeImg' src=" +response.matches[0].smallImageUrls+ "><div id='totalTime1'><div id='yield1'>Yields: </div></div></div>");
 
 		var ingredients = response.matches[0].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
@@ -292,7 +292,7 @@ function populateRecipeHeaders(foodChoice){
 		$('#ingredients1').append(ingredientsHtml);
 
 		//recipe 2
-    	$("#recipe-body2").prepend("<div class='row'><div class='ingredients col s6' id='ingredients2'><b>Ingredients:</b><br></div><div class='recipeInfo col s6'><img class='recipeImg' src="+response.matches[1].smallImageUrls+"><div id='totalTime2'><div id='yield2'>Yields: </div></div></div>");
+    	$("#recipe-body2").prepend("<div class='row'><div class='ingredients col s12 m6' id='ingredients2'><b>Ingredients:</b><br></div><div class='recipeInfo col s12 m6'><img class='recipeImg' src="+response.matches[1].smallImageUrls+"><div id='totalTime2'><div id='yield2'>Yields: </div></div></div>");
 		var ingredients = response.matches[1].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
 		for (var i =0; i < ingredients.length ; i++)
@@ -303,7 +303,7 @@ function populateRecipeHeaders(foodChoice){
 		$('#ingredients2').append(ingredientsHtml);
 
 		//recipe 3
-    	$("#recipe-body3").prepend("<div class='row'><div class='ingredients col s6' id='ingredients3'><b>Ingredients:</b><br></div><div class='recipeInfo col s6'><img class='recipeImg' src="+response.matches[2].smallImageUrls+"><div id='totalTime3'><div id='yield3'>Yields: </div></div></div>");
+    	$("#recipe-body3").prepend("<div class='row'><div class='ingredients col s12 m6' id='ingredients3'><b>Ingredients:</b><br></div><div class='recipeInfo col s12 m6'><img class='recipeImg' src="+response.matches[2].smallImageUrls+"><div id='totalTime3'><div id='yield3'>Yields: </div></div></div>");
 		var ingredients = response.matches[2].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
 		for (var i =0; i < ingredients.length ; i++)
@@ -314,7 +314,7 @@ function populateRecipeHeaders(foodChoice){
 		$('#ingredients3').append(ingredientsHtml);
 
 		//recipe 4
-    	$("#recipe-body4").prepend("<div class='row'><div class='ingredients col s6' id='ingredients4'><b>Ingredients:</b><br></div><div class='recipeInfo col s6'><img class='recipeImg' src="+response.matches[3].smallImageUrls+"><div id='totalTime4'><div id='yield4'>Yields: </div></div></div>");
+    	$("#recipe-body4").prepend("<div class='row'><div class='ingredients col s12 m6' id='ingredients4'><b>Ingredients:</b><br></div><div class='recipeInfo col s12 m6'><img class='recipeImg' src="+response.matches[3].smallImageUrls+"><div id='totalTime4'><div id='yield4'>Yields: </div></div></div>");
 		var ingredients = response.matches[3].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
 		for (var i =0; i < ingredients.length ; i++)
@@ -325,7 +325,7 @@ function populateRecipeHeaders(foodChoice){
 		$('#ingredients4').append(ingredientsHtml);
 
 		//recipe 5
-		$("#recipe-body5").prepend("<div class='row'><div class='ingredients col s6' id='ingredients5'><b>Ingredients:</b><br></div><div class='recipeInfo col s6'><img class='recipeImg' src="+response.matches[4].smallImageUrls+"><div id='totalTime5'><div id='yield5'>Yields: </div></div></div>");
+		$("#recipe-body5").prepend("<div class='row'><div class='ingredients col s12 m6' id='ingredients5'><b>Ingredients:</b><br></div><div class='recipeInfo col s12 m6'><img class='recipeImg' src="+response.matches[4].smallImageUrls+"><div id='totalTime5'><div id='yield5'>Yields: </div></div></div>");
 		var ingredients = response.matches[4].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
 		for (var i =0; i < ingredients.length ; i++) 
