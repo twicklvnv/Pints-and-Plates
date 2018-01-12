@@ -191,7 +191,7 @@ function populateBeerCarousel(styleChoosen){
 				});
 
                 //add a new item
-	            slider.append("<div data-abv='"+results[i].abv+"' onclick='openModal.call(this);' class='carousel-item'><img class='responsive-img circle' src='"+results[i].labels.large+"' style='{height:300px;width:300px;}' id='image1'><div class='beerName'>"+results[i].name+"</div><div class='beerDesc'>"+results[i].description+"</div></div>");
+	            slider.append("<div onclick='openModal.call(this);' class='carousel-item'><img class='responsive-img circle' src='"+results[i].labels.large+"' id='image1'><div class='beerName'>"+results[i].name+"</div><div class='abv'>ABV: "+results[i].abv+"%</div><div class='beerDesc'>"+results[i].description+"</div></div>");
 	                        
 	            //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
 	            if (slider.hasClass('initialized')){
@@ -414,4 +414,3 @@ var config = {
   connectionsRef.on("value", function(snap) {
 	  $("#connected-viewers").text(snap.numChildren());
   });
-  	
