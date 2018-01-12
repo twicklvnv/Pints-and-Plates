@@ -148,6 +148,8 @@ $(".orange-text").on("click", function () {
 	chosenID = $(this).attr("id");
 	styleChoosen = parseInt($(this).attr("id"));
 	$(".optionsPanel").fadeIn(1000);
+	$("#recipeTitle").hide();
+	$("#recipeInstruction").hide();
 	populateBeerCarousel(styleChoosen);
 	populateBeerStyleInfo(styleChoosen);
 	populateFoodChoices(styleChoosen);
