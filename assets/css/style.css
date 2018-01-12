@@ -120,5 +120,17 @@ li a,
 .modal-content > .beerDesc{
     display: inline;
 }
-
-
+#image1{
+    height:300px;
+    width:300px;
+}
+.modal-content > #image1{
+    height:150px;
+    width:150px;
+}
+.abv{
+    display: none;
+}
+.modal-content > .abv{
+   display: block; 
+}
