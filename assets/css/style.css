@@ -125,8 +125,8 @@ li a,
     width:300px;
 }
 .modal-content > #image1{
-    height:150px;
-    width:150px;
+    height:250px;
+    width:250px;
 }
 .abv{
     display: none;
@@ -134,3 +134,18 @@ li a,
 .modal-content > .abv{
    display: block; 
 }
+
+#modal1 {
+    height: 700px;
+    width: 500px;
+    line-height: 1.5;
+}
+
+.modal-close {
+    color: white;
+}
+
+#theBeerText {
+    margin-top: 50px;
+}
+
