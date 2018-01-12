@@ -143,6 +143,7 @@ var styleChoosen,
 			pairing3: "German chocolate cake"
 		}
         ];
+
 $(".orange-text").on("click", function () {
 	chosenID = $(this).attr("id");
 	styleChoosen = parseInt($(this).attr("id"));
@@ -172,7 +173,7 @@ function populateBeerCarousel(styleChoosen){
 
 		.done(function(response) {
         	var results = response.data;
-        	console.log(response.data);
+        	//console.log(response.data);
         	$(".carousel").carousel().empty();
 	        for (var i =0; i<results.length;i++)
 	        {
@@ -201,7 +202,6 @@ function populateBeerCarousel(styleChoosen){
                     description = "The description is not available for this beer."
                 }
 
-               //add a new item
                 slider.append("<div onclick='openModal.call(this);' class='carousel-item'><img class='responsive-img circle' src='"+results[i].labels.large+"' id='image1'><div class='beerName'>"+results[i].name+"</div><div class='abv'>ABV: "+abv+"%</div><div class='beerDesc'>"+ description+"</div></div>");
 	                        
 	            //remove the 'initialized' class which prevents slider from initializing itself again when it's not needed
@@ -213,7 +213,7 @@ function populateBeerCarousel(styleChoosen){
 				function startAutoplay($carousel) {
 					autoplay_id = setInterval(function() {
 					$carousel.carousel('next');
-					}, 3000); // every 5 seconds
+					}, 3000); 
 				}
 
 				function stopAutoplay() {
@@ -244,6 +244,7 @@ function populateBeerStyleInfo(styleChoosen) {
 }
 
 function populateFoodChoices(chosenID) {
+	$("#recipeList").hide();
 	for (var i = 0; i < beers.length; i++) {
 		if (beers[i].id === chosenID) {
 			$("#foodPair1").text(beers[i].pairing1);
@@ -260,12 +261,7 @@ function populateRecipeHeaders(foodChoice){
 		url: queryURL,
 		method: "GET"
 	}).done(function(response){
-		/*for (var i =0; i < 4; i++)
-		{
-			console.log(response.matches[i]);
-			console.log(response.matches[i].ingredients);			
-		}*/
-
+		$("#recipeList").show();
 		$("#recipe-head1").text(response.matches[0].recipeName);
 		populateRecipeURL(1,response.matches[0].id);
 
@@ -283,7 +279,6 @@ function populateRecipeHeaders(foodChoice){
 
     	//recipe 1
 		$("#recipe-body1").prepend("<div class='row'><div class='ingredients col s6' id='ingredients1'><b>Ingredients:</b><br></div><div class='recipeInfo col s6'><img class='recipeImg' src=" +response.matches[0].smallImageUrls+ "><div id='totalTime1'><div id='yield1'>Yields: </div></div></div>");
-
 
 		var ingredients = response.matches[0].ingredients;
 		var ingredientsHtml = "<ul class='ingredients'>";
@@ -348,9 +343,6 @@ function populateRecipeURL(recipeNum,recipeID){
 		url: queryURL,
 		method: "GET"
 	}).done(function(response){		
-		// console.log(response);
-		// console.log(response.yield);
-		// console.log(response.source.sourceRecipeUrl);		
 		var recipeHTML = "<br><a target='_blank' href='"+response.source.sourceRecipeUrl+"'>Click here for the full recipe!</a></div>";	
 		var totalTimeHTML = "Total time: "+response.totalTime+"<br>"
 		var recipeYield = response.yield;
@@ -381,7 +373,7 @@ function populateRecipeURL(recipeNum,recipeID){
 		        $("#totalTime5").append(totalTimeHTML);
 		        break;
 		    default:
-		       alert("none");
+		    	break;
 		}
 	});		
 }
@@ -389,9 +381,7 @@ function populateRecipeURL(recipeNum,recipeID){
 //OnClick of carousel-item class Modal pop-up
 var openModal = function(param)
 {
-    console.log(this.innerHTML);
     $(".modal-content").empty();
-    //$(".modal-header").append(this.innerHTML);
     $(".modal-content").append(this.innerHTML);
    	$(".modal").modal();
 	$('#modal1').modal('open');
