@@ -2,9 +2,11 @@ body {
     background: url("../images/beer1.jpeg");
     background-size: 1800px 1200px;
 }
+
 .titleText {
     font-family: 'Berkshire Swash', cursive;
 }
+
 .optionsPanel {
     width: 100%;
     height: 100%;
@@ -42,22 +44,19 @@ body {
     margin-bottom: 15px;
 }
 
-
 .cardTitleText {
     font-family: 'Berkshire Swash', cursive;
 }
+
 .recipeList {
    margin-top: 50px;
 }
+
 .carousel {
     margin-top: -40px;
     min-height:400px;
 }
 
-img {
-   /* height:100px;
-    width:100px;*/
-}
 .beerStyle {
     color:black;
 }
@@ -69,6 +68,7 @@ img {
     float: left;
     width: 50%;
 }
+
 .ingredients li{
     list-style-type: square!important;
     line-height: 1.5;
@@ -82,19 +82,6 @@ img {
     margin-right: 20px;
 }
 
-/* #beerStyleDesc,
-.beerName,
-#visitorText,
-.foodInstruction,
-#recipeInstruction,
-li a,
-.collapsible-header,
-.collapsible-body {
-    font-size:18px;
-    font-family: sans-serif;
-    font-variant: small-caps;
-} */
-
 .carousel .carousel-item {
     margin-top:-30px;
     width:300px !important;
@@ -106,31 +93,38 @@ li a,
     font-weight:bold;
 }
 
-.recipeInfo{
+.recipeInfo {
     float: right;
     padding-top: -200px;
 }
+
 .recipeImg {
     width:200px;
     height: 150px;
 }
+
 .beerDesc{
     display: none;
 }
+
 .modal-content > .beerDesc{
     display: inline;
 }
+
 #image1{
     height:300px;
     width:300px;
 }
+
 .modal-content > #image1{
     height:250px;
     width:250px;
 }
+
 .abv{
     display: none;
 }
+
 .modal-content > .abv{
    display: block; 
 }
