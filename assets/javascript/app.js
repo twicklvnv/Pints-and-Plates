@@ -257,7 +257,7 @@ function populateFoodChoices(chosenID) {
 }
 
 function populateRecipeHeaders(foodChoice){
-	var queryURL = "http://api.yummly.com/v1/api/recipes?_app_id=8e66c137&_app_key=7a80d82eae7315aa6e6f778cb494f46e&q="+foodChoice; //query for list of recipes
+	var queryURL = "https://api.yummly.com/v1/api/recipes?_app_id=8e66c137&_app_key=7a80d82eae7315aa6e6f778cb494f46e&q="+foodChoice; //query for list of recipes
 		
 	$.ajax({
 		url: queryURL,
@@ -339,7 +339,7 @@ function populateRecipeHeaders(foodChoice){
 
 
 function populateRecipeURL(recipeNum,recipeID){
-	var queryURL = "http://api.yummly.com/v1/api/recipe/"+recipeID+"?_app_id=8e66c137&_app_key=7a80d82eae7315aa6e6f778cb494f46e"; //query for specific recipe ID
+	var queryURL = "https://api.yummly.com/v1/api/recipe/"+recipeID+"?_app_id=8e66c137&_app_key=7a80d82eae7315aa6e6f778cb494f46e"; //query for specific recipe ID
 	
 	$.ajax({
 		url: queryURL,
