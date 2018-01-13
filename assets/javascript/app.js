@@ -91,7 +91,7 @@ var styleChoosen,
 			id: 53,
 			pairing1: "roast pork",
 			pairing2: "smoked ham",
-			pairing3: "banana souflee"
+			pairing3: "beef"
 		},
 		{
 			style: "pilsener",
