@@ -167,7 +167,7 @@ $(".waves-effect").click(function () {
 function populateBeerCarousel(styleChoosen){
 
 		$("#food1").html($(this).attr("pairing1"));
-		var queryURL = "http://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=6&hasLabels=Y&callback=JSON_CALLBACK";
+		var queryURL = "https://api.brewerydb.com/v2/beers?key=79f4d7966b1dbe7c1504f6d2b51eb3ee&styleId="+styleChoosen+"&order=random&randomCount=6&hasLabels=Y&callback=JSON_CALLBACK";
 		$.ajax( {
 			url: queryURL,
 			method: "GET",
@@ -228,7 +228,7 @@ function populateBeerCarousel(styleChoosen){
 }
 
 function populateBeerStyleInfo(styleChoosen) {
-	var queryURL = "http://api.brewerydb.com/v2/styles?key=4c23dcd38ba502bc6ff0caf79752327e&callback=JSON_CALLBACK";
+	var queryURL = "https://api.brewerydb.com/v2/styles?key=4c23dcd38ba502bc6ff0caf79752327e&callback=JSON_CALLBACK";
 
 	$.ajax({
 		url: queryURL,
